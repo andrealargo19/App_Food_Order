@@ -1,0 +1,64 @@
+.button {
+    cursor: pointer;
+    font: inherit;
+    border: none;
+    background-color: #080808;
+    color: white;
+    padding: 0.75rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px;
+    font-weight: bold;
+  }
+  
+  .button:hover,
+  .button:active {
+    background-color: #e4002b;
+  }
+  
+  .span_cartButton{
+    font-size: 1.5rem;
+  }
+
+
+  .icon {
+    
+    margin-right: 0.5rem;
+  }
+  
+  .badge {
+    background-color: #f0d01a;
+    padding: 0.25rem 1rem;
+    border-radius: 15px;
+    margin-left: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .button:hover .badge,
+  .button:active .badge {
+    background-color: #92630c;
+  }
+  
+  .bump {
+    animation: bump 300ms ease-out;
+  }
+  
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
