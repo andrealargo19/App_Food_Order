@@ -1,7 +1,8 @@
 import classes from './MealItem.module.css';
 import MealItemForm from './MealItemForm';
-
-
+import Cart from './../../Cart/Cart';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 
 const MealItem = props => {
@@ -17,6 +18,8 @@ const MealItem = props => {
             <div className={classes.price}>{price}</div>
             <div>
                 <MealItemForm/>
+                <Cart/>
+
             </div>
         </div>
     );

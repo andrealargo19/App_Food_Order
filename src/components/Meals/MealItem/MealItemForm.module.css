@@ -3,12 +3,13 @@
   }
   
   .form button {
-    font: inherit;
+    width: 110px;
+    font-size: 2rem;
     cursor: pointer;
     background-color: #2a00fa;
     border: 1px solid #3600f9;
     color: white;
-    padding: 0.25rem 2rem;
+    padding: 0.8rem;
     border-radius: 20px;
     font-weight: bold;
   }

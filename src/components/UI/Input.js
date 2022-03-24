@@ -1,4 +1,6 @@
 import classes from './Input.module.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 const Input = (props) => {
     console.log(props.input);
