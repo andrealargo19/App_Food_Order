@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classes from './AuthForm.module.css';
 import React from 'react'
-import ReactDOM from 'react-dom'
+
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);

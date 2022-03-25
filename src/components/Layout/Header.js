@@ -7,7 +7,7 @@ import {faUser} from '@fortawesome/free-solid-svg-icons';
 import HeaderCartButton from './HeaderCartButton';
 import { Link } from 'react-router-dom';
 import React from 'react'
-import ReactDOM from 'react-dom'
+
 
 const Header = (props) => {
   return (
@@ -24,7 +24,7 @@ const Header = (props) => {
                         Iniciar sesión
                       </button>
                     </Link>                  
-                    <HeaderCartButton/>
+                    <HeaderCartButton onClick={props.onShowCart}/>
                 </ul>
             </nav>
       </header>

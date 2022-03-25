@@ -1,46 +1,79 @@
 .cart-items {
     list-style: none;
     margin: 0;
-    padding: 0;
-    max-height: 20rem;
+    padding: 10px;
+    height: 20rem;
     overflow: auto;
+  }
+
+  .cart_title{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+  .cart_title p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: rgb(3, 3, 231);
+
+  }
+
+  .cart_items_descrip{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cart_items_descrip p{
+    font-size: 1.3rem;
+    
   }
   
   .total {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: rgb(247, 31, 7);
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 1rem 0;
+    padding: 15px;
   }
   
   .actions {
     text-align: right;
+    margin-bottom: 30px;
+    margin-right: 1rem;
+    
   }
   
   .actions button {
     font: inherit;
     cursor: pointer;
+    border: 1px solid #c16f4c;
     background-color: transparent;
-    border: 1px solid #8a2b06;
-    padding: 0.5rem 2rem;
+    padding: 1rem 3rem;
     border-radius: 25px;
-    margin-left: 1rem;
+    margin-left: 2rem;
   }
   
   .actions button:hover,
   .actions button:active {
-    background-color: #5a1a01;
-    border-color: #5a1a01;
+    background-color: #c16f4c;
     color: white;
+    font-weight: bold;
   }
-  
   .actions .button--alt {
-    color: #8a2b06;
+    color: #eb4408;
+   
   }
   
   .actions .button {
-    background-color: #8a2b06;
+    background-color: #003bd2;
+    border: none;
     color: white;
+    font-weight: bold;
+   
   }
