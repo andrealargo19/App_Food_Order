@@ -1,44 +1,46 @@
 .auth {
     margin: 6rem auto;
-    width: 50%;
-    height: 300px;
-    border-radius: 6px;
-    background-color: #2424fa;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-    padding: 3rem;
+    width: 45%;
+    height: 400px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: rgb(55, 82, 230);
+    box-shadow: 0px 12px 36px 0px rgba(0,0,0,0.69);
+    padding: 2rem;
     text-align: center;
   }
   
   .auth h1 {
     text-align: center;
     color: rgb(255, 255, 255);
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     letter-spacing: 0.5rem;
   }
   
   .control {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
   
   .control label {
     display: block;
-    color: rgb(10, 10, 10);
-    font-size: 1.3rem;
-    letter-spacing: 0.2rem;
+    color: rgb(33, 32, 32);
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
     font-weight: bold;
     margin-bottom: 1.2rem;
   }
   
   .control input {
     font: inherit;
-    background-color: #f1e1fc;
-    color: #5260f7;
-    border-radius: 3px;
-    border: 1px solid rgb(92, 95, 245);
+    font-size: 1.5rem;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 10px;
+    border: 1px solid rgb(53, 56, 247);
     width: 80%;
-    height: 20px;
+    height: 25px;
     text-align: left;
-    padding: 0.27rem;
+    padding: 0.6rem;
    
   }
   
@@ -52,13 +54,14 @@
   .actions button {
     cursor: pointer;
     font: inherit;
-    font-size: 1.2rem;
-    color: white;
+    font-size: 1.5rem;
+    color:white;
     font-weight: bold;
-    background-color: #3a50f7;
-    border: 1px solid #444af7;
+    background-color: #8592f0;
+    border: none;
     border-radius: 4px;
-    padding: 0.8rem 3.5rem;
+    letter-spacing: 0.2rem;
+    padding: 1rem 5rem;
   }
   
   .actions button:hover {
@@ -67,11 +70,11 @@
   }
   
   .actions .toggle {
-    margin-top: 1rem;
+    margin-top: 1.6rem;
     background-color: transparent;
     color: white;
     border: none;
-    padding: 0.15rem 1.5rem;
+    padding: 0.15rem 1.4rem;
   }
   
   .actions .toggle:hover {

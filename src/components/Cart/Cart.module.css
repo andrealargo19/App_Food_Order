@@ -2,35 +2,10 @@
     list-style: none;
     margin: 0;
     padding: 10px;
-    height: 20rem;
-    overflow: auto;
+    max-height: 20rem;
+    overflow: scroll;
   }
-
-  .cart_title{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-
-  .cart_title p {
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: rgb(3, 3, 231);
-
-  }
-
-  .cart_items_descrip{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .cart_items_descrip p{
-    font-size: 1.3rem;
-    
-  }
-  
+   
   .total {
     display: flex;
     justify-content: space-between;

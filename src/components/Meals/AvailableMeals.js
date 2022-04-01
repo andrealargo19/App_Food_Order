@@ -5,7 +5,6 @@ import MealItem from "./MealItem/MealItem";
 import React from 'react'
 
 
-
 const DUMMY_MEALS = [
     {
       id: 'm1',

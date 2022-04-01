@@ -1,4 +1,4 @@
-// import { useState } from "react";
+
 import Meals from "./components/Meals/Meals";
 import Layout from "./components/Layout/Layout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -7,13 +7,14 @@ import AuthPage from './pages/AuthPage';
 import React from 'react'
 
 
+
 function App() {
   
   return (
     <Router>
        <Layout>
          <Routes>
-         <Route path='/' element={<Meals/> }/>
+         <Route path='/' element={<Meals/>}/>
           <Route exact path="/auth" element={<AuthPage/>}/>
           <Route path='/profile' element={<UserProfile/>} />
          </Routes>

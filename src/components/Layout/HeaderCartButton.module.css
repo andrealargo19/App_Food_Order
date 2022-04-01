@@ -4,7 +4,7 @@
     border: none;
     background-color: #080808;
     color: white;
-    padding: 0.75rem 3rem;
+    padding: 0.60rem 2rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -24,16 +24,21 @@
 
   .icon {
     
-    margin-right: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  .icon svg{
+    width: 25px;
+    height: 25px;
   }
   
   .badge {
     background-color: #f0d01a;
     padding: 0.25rem 1rem;
-    border-radius: 15px;
+    border-radius: 12px;
     margin-left: 1rem;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   
   .button:hover .badge,

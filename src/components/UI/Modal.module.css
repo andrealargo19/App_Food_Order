@@ -1,4 +1,4 @@
-.backdrop {
+.Backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,9 +10,9 @@
 
 .modal {
   position: fixed;
-  top: 20vh;
+  top: 15vh;
   left: 5%;
-  width: 90%;
+  width: 100%;
   background-color: white;
   padding: 1rem;
   border-radius: 14px;
