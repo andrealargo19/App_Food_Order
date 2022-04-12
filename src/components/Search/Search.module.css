@@ -1,0 +1,68 @@
+.general_section{
+    width: 100%;
+    height: 100px;
+    margin-top: 7rem;
+    text-align: center;
+}
+
+.container_inputs{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.container_inputs label{
+    font-size: 1.5rem;
+    font-style: italic;
+    font-family: inherit;
+    margin-right: 30px;
+    margin-left: 30px;
+    align-self:center;
+   
+}
+
+.container_inputs input{
+    width: 40%;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid rgb(177, 175, 175);
+    padding: 1rem;
+    outline-color: none; 
+    
+}
+
+.container_inputs svg{
+    width: 20px;
+    height: 20px;
+    align-self: center;
+    margin-left: -35px;
+}
+
+.general_section select{
+    width: 200px;
+    height: 40px;
+    align-self: center;
+    border: 1px solid rgb(177, 175, 175);
+    border-radius: 10px;
+    padding: 0.5rem;
+    outline-color: none;
+    color:black;
+}
+
+select:hover{
+    border:1px solid rgb(141, 141, 142);
+}
+
+input:hover{
+    border:1px solid rgb(141, 141, 142);
+}
+
+
+input:focus{
+    outline-color: rgb(247, 163, 144);
+}
+
+select:focus{
+    outline-color: rgb(247, 163, 144);
+}

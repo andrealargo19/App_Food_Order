@@ -16,7 +16,11 @@ const Header = (props) => {
       <img className={classes.img_logo} src={logo} alt="es un logo"/>
             <nav className={classes.nav}>
                 <ul>
-                    <li><a href='/'>Productos</a></li>
+                    <li>
+                      <Link to='/'>
+                      Productos
+                      </Link>
+                      </li>
                     <li><a href='/'>Catálogos</a></li>
                     <HeaderCartButton onClick={props.onShowCart}/>
                     <Link to='/auth'>
