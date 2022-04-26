@@ -30,14 +30,34 @@ const Cart = props => {
     };
 
     const submitOrderHandler = async(userData) => {
+        console.log(userData);
         setIsSubmitting(true);
-       await fetch('https://react-http-6b4a6.firebaseio.com/orders.json', {
-        method: 'POST',
-        body: JSON.stringify({
-            user: userData,
-            orderedItem: cartCtx.items
-          })
-       });
+        await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers', 
+            {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                'data': userData
+                })
+            });
+
+        //PUT REQUEST 
+
+        // await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers', 
+        //     {
+        //         method: 'PUT',
+        //         headers: {
+        //         'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify({
+        //         'data': userData
+        //         })
+        //     });
+
+
+
        setIsSubmitting(false);
        setDidSumit(true);
        cartCtx.clearCart();

@@ -7,13 +7,13 @@
 
 .container_inputs{
     display: flex;
-    width: 90%;
+    width: 95%;
     justify-content: center;
-    margin: 2rem;
+    margin: 0 auto;
 }
 
 .container_inputs label{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-style: italic;
     font-family: inherit;
     margin-right: 30px;
@@ -26,9 +26,11 @@
     width: 40%;
     height: 30px;
     border-radius: 15px;
-    border: 1px solid rgb(177, 175, 175);
+    border: none;
+    /* border: 1px solid rgb(177, 175, 175); */
     padding: 1rem;
     outline-color: none; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     
 }
 
@@ -43,26 +45,28 @@
     width: 200px;
     height: 40px;
     align-self: center;
-    border: 1px solid rgb(177, 175, 175);
+    border: none;
+    /* border: 1px solid rgb(177, 175, 175); */
     border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     padding: 0.5rem;
     outline-color: none;
     color:black;
 }
 
 select:hover{
-    border:1px solid rgb(141, 141, 142);
+    border:1px solid rgb(222, 222, 222);
 }
 
 input:hover{
-    border:1px solid rgb(141, 141, 142);
+    border:1px solid rgb(222, 222, 222);
 }
 
 
 input:focus{
-    outline-color: rgb(247, 163, 144);
+    outline-color: rgb(216, 235, 253);
 }
 
 select:focus{
-    outline-color: rgb(247, 163, 144);
+    outline-color: rgb(216, 235, 253);
 }

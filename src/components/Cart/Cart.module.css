@@ -10,11 +10,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: rgb(247, 31, 7);
+    color: #e4002b;
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin: 1rem 0;
-    padding: 15px;
+    padding: 10px;
   }
   
   .actions {
@@ -27,7 +27,7 @@
   .actions button {
     font: inherit;
     cursor: pointer;
-    border: 1px solid #c16f4c;
+    border: 1px solid #e4002b;
     background-color: transparent;
     padding: 1rem 3rem;
     border-radius: 25px;
@@ -36,12 +36,12 @@
   
   .actions button:hover,
   .actions button:active {
-    background-color: #c16f4c;
+    background-color: #e4002b;
     color: white;
     font-weight: bold;
   }
   .actions .button--alt {
-    color: #eb4408;
+    color: #e4002b;
    
   }
   
@@ -50,5 +50,4 @@
     border: none;
     color: white;
     font-weight: bold;
-   
   }

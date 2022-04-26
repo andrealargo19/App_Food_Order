@@ -1,9 +1,7 @@
 import { Fragment } from 'react';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo1.png';
 import fondo from '../../assets/fondo_header.jpeg';
 import classes from './Header.module.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'; 
 import HeaderCartButton from './HeaderCartButton';
 import { Link } from 'react-router-dom';
 import React from 'react'
@@ -18,17 +16,11 @@ const Header = (props) => {
                 <ul>
                     <li>
                       <Link to='/'>
-                      Productos
+                      Productos |
                       </Link>
                       </li>
-                    <li><a href='/'>Catálogos</a></li>
-                    <HeaderCartButton onClick={props.onShowCart}/>
-                    <Link to='/auth'>
-                      <button className={classes.button_header}>
-                        <FontAwesomeIcon icon={faRightFromBracket}/>
-                        Logout
-                      </button>
-                    </Link>   
+                    <li><a href='/'>Catálogos |</a></li>
+                      <HeaderCartButton onClick={props.onShowCart}/> 
                 </ul>
             </nav>
       </header>

@@ -1,17 +1,25 @@
 .form {
-    width: 44rem;
+    width: 100%;
     margin: 0 auto;
     height: 140px;
     overflow: auto;
     padding: 0.5rem;
   }
   
-  .control {
-    margin-bottom: 1.3rem;
+  .barra_espacio{
+    width: 98%;
+    margin: 0 auto;
+    height: 10px;
+    background-color: #e4002b;
   }
+
+  .control {
+    margin-bottom: 1.5rem;
+  }
+
   
   .control label {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color:rgb(52, 52, 245);
     margin-bottom: 0.7rem;
@@ -23,7 +31,7 @@
     font: inherit;
     border: 1px solid #ccc;
     border-radius: 6px;
-    width: 22rem;
+    width: 28rem;
     height: 18px;
     max-width: 100%;
     padding: 0.5rem;
@@ -75,7 +83,13 @@
   .container_customer{
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding:5px;
+  }
+
+  .container_customer h3{
+    font-size: 1.6rem;
   }
 
   .customer_registrado{

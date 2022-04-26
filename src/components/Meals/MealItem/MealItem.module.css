@@ -8,15 +8,16 @@
 }
 
 .meal img{
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   align-self: center;
-
+  
 }
+
 .meal h2 {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.5rem;
+  margin: 0 0 0.7rem 0;
+  font-size: 1.8rem;
 }
 
 .description {
@@ -24,7 +25,7 @@
 }
 
 .price {
-  margin-top: 0.25rem;
+  margin-top: 0.8rem;
   font-weight: bold;
   color: #0755bb;
   font-size: 2rem;

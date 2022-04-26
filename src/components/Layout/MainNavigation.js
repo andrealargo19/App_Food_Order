@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
 import React from 'react'
 import classes from './MainNavigation.module.css';
-import logo from '../../assets/logo.svg';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faCircleUser} from '@fortawesome/free-solid-svg-icons';
-
+import logo from '../../assets/logo1.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'; 
 
 
 const MainNavigation = () => {
@@ -19,13 +18,16 @@ const MainNavigation = () => {
         <ul>
           <li>
             <Link to='/auth'>
-            <FontAwesomeIcon icon={faCircleUser}/>
             <span>Login</span>
             </Link>
           </li>
           <li>
             <Link to='/profile'>Profile</Link>
           </li>
+          <button className={classes.button_header}>
+            <FontAwesomeIcon icon={faRightFromBracket}/>
+            Logout
+          </button>  
         </ul>
       </nav>
     </header>
