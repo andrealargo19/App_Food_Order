@@ -1,6 +1,7 @@
 .auth {
     margin: 50px auto 50px;
-    width: 30%;
+    width: 35%;
+    min-width: 30%;
     height: auto;
     border-top-left-radius: 40px;
     border-bottom-right-radius: 40px;
@@ -8,6 +9,9 @@
     background: linear-gradient(90deg, rgba(76,168,255,0.5424763655462185) 0%, rgba(15,57,250,0.7833727240896359) 100%);
     box-shadow: 0px 12px 36px 0px rgba(0,0,0,0.69);
     text-align: center;
+    color:white;
+    font-weight: bold;
+    font-size: 1.2rem;
     
 }
 
