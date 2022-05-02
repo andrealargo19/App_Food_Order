@@ -6,11 +6,14 @@ import Search from "../Search/Search";
 import React from 'react'
 
 
+
+
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [mealsList, setMealsList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState();
+
     
   useEffect(() => {
     const fetchMeals = async () => {
@@ -23,40 +26,39 @@ const AvailableMeals = () => {
       const responseData = await response.json();
       const itemsData = responseData.body.data;
       const loadedMeals = [];
-        for (const key in itemsData){
-            loadedMeals.push({
-              id: key,
-              name: itemsData[key].GoodName,
-              description: itemsData[key].GoodDescription,
-              price: +itemsData[key].GoodSalePrice,
-              image: '../images/m9.jpeg'
-            }
-          );
-        }
-
-        setMeals(loadedMeals);
-        setIsLoading(false);
+      for (const key in itemsData){
+        loadedMeals.push({
+          id: key,
+          name: itemsData[key].GoodName,
+          description: itemsData[key].GoodDescription,
+          price: +itemsData[key].GoodSalePrice,
+          image: '../images/m9.jpeg'
+         }
+        );
+      }
+      setMeals(loadedMeals);
+      setIsLoading(false);
 
     // Estado para el primer filtro
-        setMealsList(    
-          loadedMeals.map((meal) =>(
-            <Card>
-              <MealItem 
-                key={meal.id}
-                id={meal.id}
-                name={meal.name}
-                description={meal.description}
-                price={meal.price}
-                image={meal.image}
-              />
-            </Card>
-        )))
-    };
+      setMealsList(    
+        loadedMeals.map((meal) =>(
+          <Card key={meal.id}>
+            <MealItem 
+              key={meal.id}
+              id={meal.id}
+              name={meal.name}
+              description={meal.description}
+              price={meal.price}
+              image={meal.image}
+            />
+          </Card>
+      )))
+  };
 
-        fetchMeals().catch((error) => {
-          setIsLoading(false);
-          setHttpError(error.message);
-        });
+      fetchMeals().catch((error) => {
+        setIsLoading(false);
+        setHttpError(error.message);
+      });
   }, []);
 
       if(isLoading){
@@ -77,18 +79,18 @@ const AvailableMeals = () => {
       }
 
 const filterItems = (search) => {
-    const FILTER_DUMMY_MEALS = meals.filter(item => item.name.toString().toLowerCase().includes(search.toString().toLowerCase()));
-      setMealsList(
-        FILTER_DUMMY_MEALS.map((meal) =>(
-        <Card>
-        <MealItem 
-        key={meal.id}
-        id={meal.id}
-        name={meal.name}
-        description={meal.description}
-        price={meal.price}
-        image={meal.image}
-        />
+  const FILTER_DUMMY_MEALS = meals.filter(item => item.name.toString().toLowerCase().includes(search.toString().toLowerCase()));
+    setMealsList(
+      FILTER_DUMMY_MEALS.map((meal) =>(
+        <Card key={meal.id}>
+          <MealItem 
+            key={meal.id}
+            id={meal.id}
+            name={meal.name}
+            description={meal.description}
+            price={meal.price}
+            image={meal.image}
+          />
         </Card>
       ))
     );

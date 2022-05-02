@@ -5,10 +5,12 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faCircleUser} from '@fortawesome/free-solid-svg-icons';
 import { faUnlockKeyhole } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from '../../store/auth-context';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AuthForm = () => {
+  const navigate = useNavigate();
   const firstNameInputRef = useRef();
   const lastNameInputRef = useRef();
   const userNameInputRef = useRef();
@@ -27,6 +29,7 @@ const AuthForm = () => {
   
   const submitHandler = (event) => {
     event.preventDefault();
+
     const enteredUserName = userNameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
@@ -60,10 +63,17 @@ const AuthForm = () => {
         }                                     
 
         })
+
         .then((data) => {
           const token = data.body.data.Token;
-          authCtx.login(token);
+          const expirationTime = new Date(
+            new Date().getTime() + (1000 * 60 * 60 * 2)
+          );
+          
+          authCtx.login(token, expirationTime.toISOString());
+          navigate('/');
         })
+
         .catch((err) => {
           alert(err.message);
         });
@@ -85,6 +95,7 @@ const AuthForm = () => {
           'Content-Type': 'application/json',
         },
       })
+
       .then(res => {
         setIsLoading(false);
         if (res.ok) {
@@ -96,8 +107,10 @@ const AuthForm = () => {
           });
         }
       })
+      
       .then((data) => {
         console.log(data);
+        setIsLogin(true);       
       })
       .catch((err) => {
         alert(err.message);

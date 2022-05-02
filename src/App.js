@@ -1,30 +1,40 @@
 
+import { useContext } from 'react';
 import Meals from "./components/Meals/Meals";
 import Layout from "./components/Layout/Layout";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import UserProfile from './components/Profile/UserProfile';
 import AuthPage from './pages/AuthPage';
 import React from 'react'
-import { AuthContextProvider } from "./store/auth-context";
+import AuthContext from "./store/auth-context";
 
 
 
-
-  function App() {
-    return (
-      <AuthContextProvider>
-        <Router>
-          <Layout>    
-            <Routes>
-              <Route path='/' element={<Meals/>}/>
-              <Route exact path="/auth" element={<AuthPage/>}/>
-              <Route path='/profile' element={<UserProfile/>} />
-            </Routes>
-          </Layout>
-        </Router>      
-      </AuthContextProvider>
-    );
-  }
+function App() {
+  const authCtx = useContext(AuthContext);
+  
+  return (
+    <Router>
+      <Layout>    
+        <Routes>
+          <Route
+            path="/" 
+            element={authCtx.isLoggedIn ? <Meals /> : <Navigate to="/auth" />}/>
+          <Route
+            path="/profile" 
+            element={authCtx.isLoggedIn ? <UserProfile /> : <Navigate to="/auth" />}/>
+          <Route
+            path="/auth" 
+            element={authCtx.isLoggedIn ? <Navigate to="/" /> :  <AuthPage />}/>
+          <Route
+            path="*" 
+            element={<Navigate to="/auth" />}/>
+        </Routes>
+      </Layout>
+    </Router>      
+  );
+}
 
 
 export default App;

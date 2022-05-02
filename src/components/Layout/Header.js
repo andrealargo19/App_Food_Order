@@ -5,6 +5,8 @@ import classes from './Header.module.css';
 import HeaderCartButton from './HeaderCartButton';
 import { Link } from 'react-router-dom';
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 const Header = (props) => {
@@ -15,12 +17,18 @@ const Header = (props) => {
             <nav className={classes.nav}>
                 <ul>
                     <li>
-                      <Link to='/'>
-                      Productos |
-                      </Link>
-                      </li>
+                        <Link to='/'>
+                          Productos |
+                        </Link>
+                    </li>
                     <li><a href='/'>Catálogos |</a></li>
-                      <HeaderCartButton onClick={props.onShowCart}/> 
+                    <Link to='/profile'>
+                      <li>
+                     <FontAwesomeIcon icon={faUser}/>
+                     </li>
+                    </Link>
+                    <HeaderCartButton onClick={props.onShowCart}/>
+                    
                 </ul>
             </nav>
       </header>

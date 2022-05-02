@@ -16,14 +16,14 @@ const Search = (props) => {
                     <input type="text" placeholder="Buscar Producto..." onChange={Filter}/>
                     <FontAwesomeIcon style={{color:"gray"}} icon={faMagnifyingGlass}/>
                 <label>Search by category</label>
-                <select>
-                    <option selected value="Combos">Combos</option>
+                <select defaultValue={'DEFAULT'} >
+                    <option value="DEFAULT" disabled>Choose a category...</option>
+                    <option value="Combos">Combos</option>
                     <option value="bebidas">bebidas</option>
                     <option value="pollo">pollo</option>
                     <option value="Snacks">Snacks</option>
                 </select>
             </div>
-
         </section>
     );
 }
