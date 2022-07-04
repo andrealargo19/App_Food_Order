@@ -28,10 +28,11 @@ const AvailableMeals = () => {
       const loadedMeals = [];
       for (const key in itemsData){
         loadedMeals.push({
-          id: key,
+          id: itemsData[key].GoodId,
           name: itemsData[key].GoodName,
           description: itemsData[key].GoodDescription,
           price: +itemsData[key].GoodSalePrice,
+          comboId: +itemsData[key].GoodComboId,
           image: '../images/m9.jpeg'
          }
         );
@@ -50,6 +51,7 @@ const AvailableMeals = () => {
               description={meal.description}
               price={meal.price}
               image={meal.image}
+              comboId={meal.comboId}
             />
           </Card>
       )))
@@ -90,6 +92,7 @@ const filterItems = (search) => {
             description={meal.description}
             price={meal.price}
             image={meal.image}
+            comboId={meal.comboId}
           />
         </Card>
       ))

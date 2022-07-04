@@ -33,7 +33,7 @@ const AuthForm = () => {
     const enteredUserName = userNameInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
 
-
+    
     setIsLoading(true);
     let url;
     if (isLogin) {
@@ -66,11 +66,12 @@ const AuthForm = () => {
 
         .then((data) => {
           const token = data.body.data.Token;
+          const userId = data.body.data.UserId;
           const expirationTime = new Date(
             new Date().getTime() + (1000 * 60 * 60 * 2)
           );
           
-          authCtx.login(token, expirationTime.toISOString());
+          authCtx.login(token, userId, expirationTime.toISOString());
           navigate('/');
         })
 

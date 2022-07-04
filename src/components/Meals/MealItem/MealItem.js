@@ -17,7 +17,8 @@ const MealItem = props => {
             name: props.name,
             amount: amount,
             price: props.price,
-            description: props.description
+            description: props.description,
+            comboId: props.comboId
         });
     };
 

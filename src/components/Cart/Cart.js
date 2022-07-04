@@ -5,10 +5,13 @@ import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import Modal from '../UI/Modal';
 import Checkout from './Checkout';
+import { Link } from 'react-router-dom';
+import AuthContext from '../../store/auth-context';
 
-
-
-const Cart = props => {
+const Cart = props => 
+{
+    const authCtx = useContext(AuthContext);
+    const noRegisteredId = "1";
     const [isCheckout, setIsCheckout] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [didSubmit, setDidSumit] = useState(false);
@@ -16,51 +19,112 @@ const Cart = props => {
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
 
-    const cartItemRemoverHandler = (id) => {
+    const cartItemRemoverHandler = (id) => 
+    {
         cartCtx.removeItem(id);
     };
 
-    const cartItemAddHandler = (item) => {
+    const cartItemAddHandler = (item) => 
+    {
         const cartItem = { ...item, amount: 1 };
         cartCtx.addItem(cartItem);
     };
 
-    const orderHandler = () => {
+    const orderHandler = () => 
+    {
         setIsCheckout(true);
     };
 
-    const submitOrderHandler = async(userData) => {
-        console.log(userData);
+    const submitOrderHandler = async(userData) => 
+    {
+        //verifytoken
+        const urlTokenCompare = 'https://www.ip20soft.tech/JJ-POS-Backend/api/v1/index.php/users/verifyToken?' + new URLSearchParams({
+            UserId: authCtx.userId,
+            Token: authCtx.token,
+        });
+
+        await fetch(urlTokenCompare).then(res => 
+        {
+            if (res.status === 200) {
+                console.log('usuario verificado!');  
+            } else if (res.status !== 200) {
+                console.log("credentials not valid");
+            }
+        });
+        
+        //creando new customers
         setIsSubmitting(true);
-        await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers', 
+
+        //condicional para POST y PUT
+        if (userData.CustomerId !== noRegisteredId) {
+            let customerData = {
+                FirstName: userData.FirstName,
+                LastName: userData.LastName,
+                Email: userData.Email,
+                PhoneNumber: userData.PhoneNumber  
+            };
+
+            let metodoCustomer = "POST";
+            //PUT
+                
+            if (userData.CustomerId !== '99') {
+                metodoCustomer = "PUT"
+                customerData = userData;
+            }
+                
+            //fetch
+            await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers',
             {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
+                method: metodoCustomer,
+                headers: 
+                {
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                'data': userData
+                body: JSON.stringify(
+                {
+                    'data': customerData
                 })
             });
+        }
 
-        //PUT REQUEST 
+        //fetch POST for sending Sales
+        const checkoutItems = cartCtx.items.map(
+            (item) => {
+                return {
+                    "GoodId": +item.id,
+                    "GoodName": item.name,
+                    "Quantity": item.amount,
+                    "GoodSalePrice": item.price,
+                    "GoodComboId": item.comboId
+                }
+            }
+        );
 
-        // await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers', 
-        //     {
-        //         method: 'PUT',
-        //         headers: {
-        //         'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //         'data': userData
-        //         })
-        //     });
+        console.log(checkoutItems);
+        const checkoutBody = {
+            "data": {
+                "ExitDate": new Date().toISOString().slice(0, 10),
+                "UserId": +authCtx.userId,
+                "CustomerId": +userData.CustomerId,
+                "Details": checkoutItems
+            }
+        }
 
+        const response = await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/sales/doCheckout', 
+        {
+            method: "POST",
+            headers: 
+            {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(checkoutBody)            
+        });
 
-
-       setIsSubmitting(false);
-       setDidSumit(true);
-       cartCtx.clearCart();
+        const responseData = response.json(); 
+        console.log(responseData);
+        setIsSubmitting(false);
+        setDidSumit(true);
+        cartCtx.clearCart();
     };
 
     const cartItems = (
@@ -93,37 +157,39 @@ const Cart = props => {
     );
     
     const cartModalContent = (
-    <React.Fragment>
-        {cartItems}
-        <div className={classes.total}>
-            <span>Total Amount</span>
-            <span>{totalAmount}</span>
-        </div>
-        {isCheckout && (
-        <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
-        )}
-        {!isCheckout && modalActions}  
-    </React.Fragment>
+        <React.Fragment>
+            {cartItems}
+            <div className={classes.total}>
+                <span>Total Amount</span>
+                <span>{totalAmount}</span>
+            </div>
+            {isCheckout && (
+            <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
+            )}
+            {!isCheckout && modalActions}  
+        </React.Fragment>
     );
 
     const isSubmittingModalContent = <p>Sending order data...</p>;
-    
+
     const didSubmitModalContent = (
         <React.Fragment>
             <p>Successfully sent the order!</p>
             <div className={classes.actions}>
+                <Link to="/PrintPage">
                 <button className={classes.button} onClick={props.onClose}>
-                    Close
+                    Print
                 </button>
+                </Link>
             </div>
         </React.Fragment>
-        );
+    );
 
     return(
         <Modal onClose={props.onClose}>
-           {!isSubmitting && !didSubmit && cartModalContent}  
-           {isSubmitting && isSubmittingModalContent}
-           {!isSubmitting && didSubmit && didSubmitModalContent}
+            {!isSubmitting && !didSubmit && cartModalContent}  
+            {isSubmitting && isSubmittingModalContent}
+            {!isSubmitting && didSubmit && didSubmitModalContent}
         </Modal>
     );
 };

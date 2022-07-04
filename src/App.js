@@ -8,6 +8,7 @@ import UserProfile from './components/Profile/UserProfile';
 import AuthPage from './pages/AuthPage';
 import React from 'react'
 import AuthContext from "./store/auth-context";
+import PrintPage from './pages/PrintPage';
 
 
 
@@ -18,6 +19,9 @@ function App() {
     <Router>
       <Layout>    
         <Routes>
+          <Route
+          path="/PrintPage"
+          element={authCtx.isLoggedIn ? <PrintPage /> : <Navigate to="/auth" />}/>
           <Route
             path="/" 
             element={authCtx.isLoggedIn ? <Meals /> : <Navigate to="/auth" />}/>
