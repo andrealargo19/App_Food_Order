@@ -7,9 +7,12 @@ import Modal from '../UI/Modal';
 import Checkout from './Checkout';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../store/auth-context';
+import PrintContext from '../../store/print-context';
 
-const Cart = props => 
-{
+
+const Cart = props => {
+   
+    const checkoutCtx = useContext(PrintContext);
     const authCtx = useContext(AuthContext);
     const noRegisteredId = "1";
     const [isCheckout, setIsCheckout] = useState(false);
@@ -95,8 +98,9 @@ const Cart = props =>
                     "GoodName": item.name,
                     "Quantity": item.amount,
                     "GoodSalePrice": item.price,
-                    "GoodComboId": item.comboId
+                    "ComboId": item.comboId
                 }
+
             }
         );
 
@@ -109,6 +113,8 @@ const Cart = props =>
                 "Details": checkoutItems
             }
         }
+        console.log("Checkout body");
+        console.log(checkoutBody);
 
         const response = await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/sales/doCheckout', 
         {
@@ -118,10 +124,19 @@ const Cart = props =>
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(checkoutBody)            
-        });
+        })
 
-        const responseData = response.json(); 
+        const responseData = await response.json();
         console.log(responseData);
+        if (responseData.httpResponseCode == 200) {
+            checkoutCtx.addUserData(userData);
+            checkoutCtx.addCartData(cartCtx.totalAmount);
+            checkoutCtx.addCheckoutData(checkoutBody);
+            checkoutCtx.addCheckoutResponse(responseData.body);    
+        } else {
+            console.log("error");
+        }
+
         setIsSubmitting(false);
         setDidSumit(true);
         cartCtx.clearCart();

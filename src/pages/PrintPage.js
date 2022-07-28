@@ -1,5 +1,6 @@
 import React from 'react'
-import Print from '../components/UI/Print'
+import Print from '../components/UI/Print';
+
 
 
 

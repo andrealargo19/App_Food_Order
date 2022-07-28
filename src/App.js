@@ -1,4 +1,3 @@
-
 import { useContext } from 'react';
 import Meals from "./components/Meals/Meals";
 import Layout from "./components/Layout/Layout";
@@ -9,7 +8,7 @@ import AuthPage from './pages/AuthPage';
 import React from 'react'
 import AuthContext from "./store/auth-context";
 import PrintPage from './pages/PrintPage';
-
+import { PrintContextProvider } from "./store/print-context";
 
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
   
   return (
     <Router>
+      <PrintContextProvider>
       <Layout>    
         <Routes>
           <Route
@@ -36,6 +36,8 @@ function App() {
             element={<Navigate to="/auth" />}/>
         </Routes>
       </Layout>
+      </PrintContextProvider>
+      
     </Router>      
   );
 }

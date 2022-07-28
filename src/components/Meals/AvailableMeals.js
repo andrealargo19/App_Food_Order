@@ -6,8 +6,6 @@ import Search from "../Search/Search";
 import React from 'react'
 
 
-
-
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
   const [mealsList, setMealsList] = useState(null);

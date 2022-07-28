@@ -13,16 +13,8 @@ const Search = (props) => {
     return(
         <section className={classes.general_section}>
             <div className={classes.container_inputs}>
-                    <input type="text" placeholder="Buscar Producto..." onChange={Filter}/>
-                    <FontAwesomeIcon style={{color:"gray"}} icon={faMagnifyingGlass}/>
-                <label>Search by category</label>
-                <select defaultValue={'DEFAULT'} >
-                    <option value="DEFAULT" disabled>Choose a category...</option>
-                    <option value="Combos">Combos</option>
-                    <option value="bebidas">bebidas</option>
-                    <option value="pollo">pollo</option>
-                    <option value="Snacks">Snacks</option>
-                </select>
+                <input type="text" placeholder="Buscar Producto..." onChange={Filter}/>
+                <FontAwesomeIcon style={{color:"gray"}} icon={faMagnifyingGlass}/>
             </div>
         </section>
     );
