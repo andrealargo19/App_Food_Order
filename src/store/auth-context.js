@@ -23,7 +23,7 @@ const retrieveStoredToken = () => {
     const storedToken = localStorage.getItem('token');
     const storedExpirationDate = localStorage.getItem('expirationTime');
     const remainingTime = calculateRemainingTime(storedExpirationDate);
-    if (remainingTime <= 5600) {
+    if (remainingTime <= 3600) {
         localStorage.removeItem('token');
         localStorage.removeItem('expirationTime');
         return null;

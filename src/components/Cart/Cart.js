@@ -10,6 +10,7 @@ import AuthContext from '../../store/auth-context';
 import PrintContext from '../../store/print-context';
 
 
+//main function
 const Cart = props => {
    
     const checkoutCtx = useContext(PrintContext);
@@ -22,32 +23,28 @@ const Cart = props => {
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
     const hasItems = cartCtx.items.length > 0;
 
-    const cartItemRemoverHandler = (id) => 
-    {
+
+    const cartItemRemoverHandler = (id) => {
         cartCtx.removeItem(id);
     };
 
-    const cartItemAddHandler = (item) => 
-    {
+    const cartItemAddHandler = (item) => {
         const cartItem = { ...item, amount: 1 };
         cartCtx.addItem(cartItem);
     };
 
-    const orderHandler = () => 
-    {
+    const orderHandler = () => {
         setIsCheckout(true);
     };
 
-    const submitOrderHandler = async(userData) => 
-    {
+    const submitOrderHandler = async(userData) => {
         //verifytoken
         const urlTokenCompare = 'https://www.ip20soft.tech/JJ-POS-Backend/api/v1/index.php/users/verifyToken?' + new URLSearchParams({
             UserId: authCtx.userId,
             Token: authCtx.token,
         });
 
-        await fetch(urlTokenCompare).then(res => 
-        {
+        await fetch(urlTokenCompare).then(res => {
             if (res.status === 200) {
                 console.log('usuario verificado!');  
             } else if (res.status !== 200) {
@@ -83,8 +80,7 @@ const Cart = props => {
                 {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(
-                {
+                body: JSON.stringify({
                     'data': customerData
                 })
             });
@@ -100,7 +96,6 @@ const Cart = props => {
                     "GoodSalePrice": item.price,
                     "ComboId": item.comboId
                 }
-
             }
         );
 
@@ -128,7 +123,7 @@ const Cart = props => {
 
         const responseData = await response.json();
         console.log(responseData);
-        if (responseData.httpResponseCode == 200) {
+        if (responseData.httpResponseCode === 200) {
             checkoutCtx.addUserData(userData);
             checkoutCtx.addCartData(cartCtx.totalAmount);
             checkoutCtx.addCheckoutData(checkoutBody);

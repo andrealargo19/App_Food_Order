@@ -31,8 +31,8 @@ const AvailableMeals = () => {
           description: itemsData[key].GoodDescription,
           price: +itemsData[key].GoodSalePrice,
           comboId: +itemsData[key].GoodComboId,
-          image: '../images/m9.jpeg'
-         }
+          image: itemsData[key].GoodImage
+        }
         );
       }
       setMeals(loadedMeals);
