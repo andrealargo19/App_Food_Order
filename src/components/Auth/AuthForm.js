@@ -57,7 +57,7 @@ const AuthForm = () => {
           return res.json();
         } else {
           return res.json().then((data) => {
-            let errorMessage = 'Authentication failed!';
+            let errorMessage = 'Nombre de usuario/Contraseña incorrecto';
             throw new Error(errorMessage);
           })
         }                                     
@@ -103,7 +103,7 @@ const AuthForm = () => {
           return res.json();
         } else {
           return res.json().then((data) => {
-          let errorMessage = 'Authentication failed!';
+          let errorMessage = 'Nombre de usuario/Contraseña incorrecto';
           throw new Error(errorMessage);
           });
         }
@@ -124,12 +124,12 @@ const AuthForm = () => {
     <React.Fragment>
       <div className={classes.control}>
         <label htmlFor='firstName'></label>
-        <input type='text' id='firstName' placeholder='Enter your firstName...' required ref={firstNameInputRef} />
+        <input type='text' id='firstName' placeholder='Introduce tu(s) nombre(s)...' required ref={firstNameInputRef} />
         <FontAwesomeIcon icon={faCircleUser}/>
       </div>
       <div className={classes.control}>
         <label htmlFor='lastName'></label>
-        <input type='text' id='lastName' placeholder='Enter your lastName...' required ref={lastNameInputRef} />
+        <input type='text' id='lastName' placeholder='Introduce tu(s) apellido(s)...' required ref={lastNameInputRef} />
         <FontAwesomeIcon icon={faCircleUser}/>
       </div>
     </React.Fragment>
@@ -138,24 +138,24 @@ const AuthForm = () => {
   return (
     <section className={classes.auth}>
       <FontAwesomeIcon icon={faCircleUser}/>
-      <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
+      <h1>{isLogin ? 'Iniciar sesión' : 'Crear cuenta'}</h1>
       <form onSubmit={submitHandler}>
-        {isLogin ? 'Login' : cartPersonalData}
+        {isLogin ? 'Iniciar sesión' : cartPersonalData}
 
         <div className={classes.control}>
           <label htmlFor='userName'></label>
-          <input type='text' id='userName' placeholder=' Enter your userName...' required ref={userNameInputRef} />
+          <input type='text' id='userName' placeholder='Nombre de usuario...' required ref={userNameInputRef} />
           <FontAwesomeIcon icon={faCircleUser}/>
         </div>
         <div className={classes.control}>
           <label htmlFor='password'></label>
-          <input type='password' id='password' placeholder='Enter your password...' required ref={passwordInputRef} />
+          <input type='password' id='password' placeholder='Contraseña...' required ref={passwordInputRef} />
           <FontAwesomeIcon icon={faUnlockKeyhole}/>
         </div>
         <div className={classes.actions}>
-          {!isLoading && <button>{isLogin ? 'Login' : 'Create Account'}
+          {!isLoading && <button>{isLogin ? 'Iniciar sesión' : 'Crear cuenta'}
           </button>}
-          {isLoading && <p>Sending request...</p>}
+          {isLoading && <p>Enviando solicitud...</p>}
         </div>
         <div className={classes.actions_toggle}>
         <button
@@ -163,7 +163,7 @@ const AuthForm = () => {
             className={classes.toggle}
             onClick={switchAuthModeHandler}
           >
-            {isLogin ? 'Create new account' : 'Login with existing account'}
+            {isLogin ? 'Crear una cuenta' : 'Iniciar sesión con una cuenta existente'}
           </button>
         </div>
       </form>

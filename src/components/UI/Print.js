@@ -11,7 +11,10 @@ function Print(props) {
   const detailsId = checkoutResponse.Details;
   const userId = checkoutResponse.UserId;
   const saleRecordId = checkoutResponse.ExitId;
+  
   const checkoutData = checkoutCtx.checkoutData;
+  const saleDate = checkoutData.ExitDate;
+
   const totalAmount = checkoutCtx.cartData;
   const userData = checkoutCtx.userData;
   const navigate = useNavigate();
@@ -50,11 +53,11 @@ function Print(props) {
 
   return (
     <div className={classes.general_container}>
-      <h6>date</h6>
+      <h6>{saleDate}</h6>
       <img className={classes.img_logo} src={logo} alt="es un logo"/>
-      <h1>Print your Recept</h1>
+      <h1>Imprimir recibo</h1>
       <div className={classes.container_recept}>
-        <h2>Order details</h2>
+        <h2>Detalles de la orden</h2>
         
         {/* //Items */} 
         <div className={classes.container_order}>
@@ -64,15 +67,15 @@ function Print(props) {
                         <div key={item.GoodId}>
                           <h1>-------------------------</h1>
                           <div className={classes.item}>
-                              <p>Product Name:</p>
+                              <p>Producto:</p>
                               <span className={classes.name}>{item.GoodName}</span>
                           </div>
                           <div className={classes.item}>
-                              <p>Quantity:</p>
+                              <p>Cantidad:</p>
                               <span className={classes.description}>{item.Quantity}</span>
                           </div>
                           <div className={classes.item}>
-                              <p>Product Price:</p>
+                              <p>Importe:</p>
                               <span className={classes.price}>${item.SalePrice}</span>
                           </div>
                         </div>
@@ -85,19 +88,19 @@ function Print(props) {
         
         <div className={classes.item}>
         <h1>-------------------------</h1>
-          <p>Total Amount:</p>
+          <p>Total:</p>
           <span className={classes.total_Amount}>$ {totalAmount} pesos</span>
         </div>
          
         {/* //customer Detail */} 
-        <h2>Customer Details</h2>
+        <h2>Datos del cliente</h2>
         <div className={classes.container_CustomerDetail}>
           <div className={classes.item}>
-            <p>FirstName:</p>
+            <p>Nombre:</p>
             <span>{userData.FirstName}</span>
           </div>
           <div className={classes.item}>
-            <p>LastName:</p>
+            <p>Apellidos:</p>
             <span>{userData.LastName}</span>
           </div>
           <div className={classes.item}>
@@ -105,12 +108,12 @@ function Print(props) {
             <span>{userData.Email}</span>
           </div>
           <div className={classes.item}>
-            <p>PhoneNumber:</p>
+            <p>Número de teléfono:</p>
             <span>{userData.PhoneNumber}</span>
           </div> 
         </div>     
       </div>
-      <button onClick={endCheckout}>Accept</button>
+      <button onClick={endCheckout}>Aceptar</button>
     </div>
   )
 }

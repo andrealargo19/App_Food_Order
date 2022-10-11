@@ -8,7 +8,7 @@ const UserProfile = () => {
   return (
       <section className={classes.profile}>
           <MainNavigation />
-            <h1>Your User Profile</h1>
+            <h1>Perfil de usuario</h1>
           <ProfileForm />
           
       </section>

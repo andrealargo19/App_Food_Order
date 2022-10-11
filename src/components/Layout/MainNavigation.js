@@ -23,7 +23,7 @@ const MainNavigation = () => {
       {isLoggedIn && (
         <Link to='/'>
           <div className={classes.logo}>
-            <img className={classes.main_logo} src={logo} alt="es un logo"/>
+            <img className={classes.main_logo} src={logo} alt="Logotipo de Poyong"/>
           </div>
         </Link>
         )}
@@ -31,18 +31,18 @@ const MainNavigation = () => {
         <ul>
           {!isLoggedIn && ( 
             <li>
-              <Link to='/auth'>Login</Link>
+              <Link to='/auth'>Inicio de sesión</Link>
             </li>
           )}
           {isLoggedIn && (
             <li>
-              <Link to='/profile'>Profile</Link>
+              <Link to='/profile'>Perfil</Link>
             </li>
           )}
          {isLoggedIn && (
           <button onClick={logoutHandler} className={classes.button_header}>
             <FontAwesomeIcon icon={faRightFromBracket}/>
-            Logout
+            Cerrar sesión
           </button> 
         )}
         </ul>

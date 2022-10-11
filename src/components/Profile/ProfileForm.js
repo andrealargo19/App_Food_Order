@@ -27,7 +27,7 @@ const ProfileForm = () => {
       }).then(res => {
 
       if (res.status === 200) {
-        alert("Password changed!!");
+        alert("Contraseña modificada!!");
         authCtx.logout();
       }
       })
@@ -37,11 +37,11 @@ const ProfileForm = () => {
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <div className={classes.control}>
-        <label htmlFor='new-password'>New Password</label>
+        <label htmlFor='new-password'>Nueva contraseña</label>
         <input type='password' id='new-password' minLength="7" ref={newPasswordInputRef}/>
       </div>
       <div className={classes.action}>
-        <button>Change Password</button>
+        <button>Cambiar contraseña</button>
       </div>
     </form>
   );

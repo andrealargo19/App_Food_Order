@@ -18,7 +18,7 @@ const AvailableMeals = () => {
       const response = await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/goods');
       
       if(!response.ok) {
-        throw new Error('Something went wrong!');
+        throw new Error('Algo salió mal!');
       }
 
       const responseData = await response.json();
@@ -64,7 +64,7 @@ const AvailableMeals = () => {
       if(isLoading){
         return(
           <section className={classes.MealsLoading}>
-            <p>Loading...</p>
+            <p>Cargando...</p>
           </section>
         );
       }
