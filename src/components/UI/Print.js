@@ -11,8 +11,8 @@ function Print(props) {
   const detailsId = checkoutResponse.Details;
   const userId = checkoutResponse.UserId;
   const saleRecordId = checkoutResponse.ExitId;
-  
-  const checkoutData = checkoutCtx.checkoutData;
+
+  const checkoutData = checkoutCtx.checkoutData.data;
   const saleDate = checkoutData.ExitDate;
 
   const totalAmount = checkoutCtx.cartData;
@@ -53,9 +53,9 @@ function Print(props) {
 
   return (
     <div className={classes.general_container}>
-      <h6>{saleDate}</h6>
+      <h6>Fecha: {saleDate}</h6>
       <img className={classes.img_logo} src={logo} alt="es un logo"/>
-      <h1>Imprimir recibo</h1>
+      <h1>Recibo # {saleRecordId}</h1>
       <div className={classes.container_recept}>
         <h2>Detalles de la orden</h2>
         
