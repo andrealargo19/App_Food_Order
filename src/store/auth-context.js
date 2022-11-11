@@ -40,8 +40,11 @@ export const  AuthContextProvider = (props) => {
     if(tokenData) {
         initialToken = tokenData.token;
     }
+    // xbtMOD test ------------------------------------------------------------
+    let initialUser = localStorage.getItem('userId');
+    // xbtMOD test ------------------------------------------------------------
     const [token, setToken] = useState(initialToken);
-    const [userId, setUserId] = useState(null);
+    const [userId, setUserId] = useState(initialUser); // xtbtMOD
 
     const userIsLoggedIn = !!token;
 

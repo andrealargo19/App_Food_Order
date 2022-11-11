@@ -21,7 +21,7 @@ const Header = (props) => {
                           Productos |
                         </Link>
                     </li>
-                    <li><a href='/'>Catálogos |</a></li>
+                    <li><a href='https://ip20soft.tech/JJ-POS-Backend/cruds/index.html'>Catálogos |</a></li>
                     <Link to='/profile'>
                       <li>
                      <FontAwesomeIcon icon={faUser}/>
