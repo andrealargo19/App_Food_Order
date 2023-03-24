@@ -154,28 +154,28 @@ const Checkout = (props) => {
                 </div>  
             </div>
             <div className={nameControlClasses}>
-                <label htmlFor='name'>name</label>
-                <input type='text' id='name' placeholder='Name' disabled={disabled}  ref={nameInputRef}/>
-                {!formInputsValidity.name && <p>please enter a valid name!</p>} 
+                <label htmlFor='name'>Nombre</label>
+                <input type='text' id='name' placeholder='Nombre' disabled={disabled}  ref={nameInputRef}/>
+                {!formInputsValidity.name && <p>Introduce un nombre válido!</p>} 
             </div>
             <div className={lastNameControlClasses}>
-                <label htmlFor='lastName'>lastName</label>
-                <input type='text' id='lastName' placeholder='lastName' disabled={disabled} ref={lastNameInputRef}/>
-                {!formInputsValidity.lastName && <p>please enter a valid lastName!</p>}
+                <label htmlFor='lastName'>Apellidos</label>
+                <input type='text' id='lastName' placeholder='Apellidos' disabled={disabled} ref={lastNameInputRef}/>
+                {!formInputsValidity.lastName && <p>Introduce apellidos válidos!</p>}
             </div>
             <div className={emailControlClasses}>
-                <label htmlFor='email'>email</label>
-                <input type='email' id='email' placeholder='email' disabled={disabled} ref={emailInputRef} />
-                {!formInputsValidity.email && <p>please enter a valid email!</p>}
+                <label htmlFor='email'>Correo Electrónico</label>
+                <input type='email' id='email' placeholder='Correo Electrónico' disabled={disabled} ref={emailInputRef} />
+                {!formInputsValidity.email && <p>Introduce un correo electrónico válido!</p>}
             </div>
             <div className={phoneControlClasses}>
-                <label htmlFor='phone'>phone</label>
-                <input type='number' id='phone' placeholder='phone Number' disabled={disabled} ref={phoneInputRef} />
-                {!formInputsValidity.phone && <p>please enter a valid phone (12 characters max)</p>}
+                <label htmlFor='phone'>Teléfono</label>
+                <input type='number' id='phone' placeholder='Teléfono' disabled={disabled} ref={phoneInputRef} />
+                {!formInputsValidity.phone && <p>Introduce un número de teléfono válido (12 dígitos máximo)</p>}
             </div>
             <div className={classes.actions}>
-                <button type="button" onClick={props.onCancel}>Cancel</button>
-                <button>Confirm</button>
+                <button type="button" onClick={props.onCancel}>Cancelar</button>
+                <button>Confirmar</button>
             </div>
         </form>
     );

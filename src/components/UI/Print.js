@@ -85,13 +85,11 @@ function Print(props) {
         </div> 
 
         {/* //Total Amount */} 
-        
-        <div className={classes.item}>
         <h1>-------------------------</h1>
+        <div className={classes.item}>
           <p>Total:</p>
           <span className={classes.total_Amount}>$ {totalAmount} pesos</span>
         </div>
-         
         {/* //customer Detail */} 
         <h2>Datos del cliente</h2>
         <div className={classes.container_CustomerDetail}>
