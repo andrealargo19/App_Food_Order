@@ -11,7 +11,7 @@ const Checkout = (props) => {
     const [customers, setCustomers] = useState([]);
     const [disabled , setDisabled] = useState(false); 
     const noRegisteredId = "1";
-    const newCustomerId = "99";
+    const newCustomerId = "999";
     
     useEffect(() => {
         const fetchCustomers = async () => {

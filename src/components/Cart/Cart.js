@@ -46,9 +46,9 @@ const Cart = props => {
 
         await fetch(urlTokenCompare).then(res => {
             if (res.status === 200) {
-                console.log('usuario verificado!');  
+                console.log('Usuario verificado!');  
             } else if (res.status !== 200) {
-                console.log("credentials not valid");
+                console.log("Credenciales no válidas");
             }
         });
         
@@ -67,13 +67,13 @@ const Cart = props => {
             let metodoCustomer = "POST";
             //PUT
                 
-            if (userData.CustomerId !== '99') {
+            if (userData.CustomerId !== '999') {
                 metodoCustomer = "PUT"
                 customerData = userData;
             }
                 
             //fetch
-            await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers',
+            const customerResponse = await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/customers',
             {
                 method: metodoCustomer,
                 headers: 
@@ -84,7 +84,17 @@ const Cart = props => {
                     'data': customerData
                 })
             });
-        }
+
+            const CustomerResponseData = await customerResponse.json();
+            console.log(CustomerResponseData);
+            if (CustomerResponseData.httpResponseCode === 200) {
+                userData.CustomerId = metodoCustomer == 'PUT' ? userData.CustomerId : CustomerResponseData.body.data.id;
+            }
+            else {
+                console.log('No se pudo crear cliente');
+                userData.CustomerId = noRegisteredId;
+            }
+        };
 
         //fetch POST for sending Sales
         const checkoutItems = cartCtx.items.map(

@@ -8,8 +8,8 @@ import classes from './Print.module.css';
 function Print(props) {
   const checkoutCtx = useContext(PrintContext);
   const checkoutResponse = checkoutCtx.checkoutResponse.data;
-  const detailsId = checkoutResponse.Details;
-  const userId = checkoutResponse.UserId;
+  // const detailsId = checkoutResponse.Details;
+  // const userId = checkoutResponse.UserId;
   const saleRecordId = checkoutResponse.ExitId;
 
   const checkoutData = checkoutCtx.checkoutData.data;
@@ -54,7 +54,7 @@ function Print(props) {
   return (
     <div className={classes.general_container}>
       <h6>Fecha: {saleDate}</h6>
-      <img className={classes.img_logo} src={logo} alt="es un logo"/>
+      <img className={classes.img_logo} src={logo} alt="Logo Poyong"/>
       <h1>Recibo # {saleRecordId}</h1>
       <div className={classes.container_recept}>
         <h2>Detalles de la orden</h2>

@@ -15,7 +15,7 @@ const AvailableMeals = () => {
     
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/goods');
+      const response = await fetch('https://ip20soft.tech/JJ-POS-Backend/api/v1/index.php/goods?GoodStatus=1');
       
       if(!response.ok) {
         throw new Error('Algo salió mal!');
